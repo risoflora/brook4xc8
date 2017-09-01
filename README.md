@@ -21,7 +21,7 @@ B4X_LCD_SET_D6(PORTB, 4); /* Set LCD D6 port. */
 B4X_LCD_SET_D7(PORTB, 5); /* Set LCD D7 port. */
 
 void main() {
-    CMCON = 0x07; /* disable comparator. */
+    CMCON = 0x07; /* Disable comparator. */
     TRISB = 0xc0; /* RB<0:5> as output. */
     b4x_lcd_init(); /* Initialize LCD. */
     b4x_lcd_write(0, 0, "HELLO WORLD!"); /* Writes "HELLO WORLD!" on the LCD. */
