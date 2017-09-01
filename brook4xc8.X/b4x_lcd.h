@@ -186,7 +186,7 @@ B4X_EXTERN void b4x_lcd_init();
 
 /**
  * Sends command to LCD.
- * @param cmd
+ * @param cmd Command line.
  */
 B4X_EXTERN void b4x_lcd_cmd(unsigned char cmd);
 
