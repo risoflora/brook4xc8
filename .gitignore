@@ -40,3 +40,5 @@ Package-*.bash
 /examples/brook4xc8-lcd.X/nbproject/private/
 /brook4xc8.X/dist/default/
 /examples/brook4xc8-switch.X/nbproject/private/
+/examples/brook4xc8-switch.X/build/default/
+/examples/brook4xc8-switch.X/dist/default/
