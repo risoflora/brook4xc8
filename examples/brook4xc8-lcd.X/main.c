@@ -30,5 +30,5 @@ void main() {
     TRISB = 0xc0; /* RB<0:5> as output. */
     b4x_lcd_init(); /* Initialize LCD. */
     b4x_lcd_write(0, 0, "HELLO WORLD!"); /* Writes "HELLO WORLD!" on the LCD. */
-    for (;;); /* main loop. */
+    for (;;); /* Main loop. */
 }
