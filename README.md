@@ -31,4 +31,4 @@ void main() {
 
 ## Notice
 
-(it is under development, however, we are working hardly to release new features)
+**(it is under development, however, we are working hardly to release new features)**
