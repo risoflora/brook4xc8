@@ -7,6 +7,7 @@
       <itemPath>b4x_macros.h</itemPath>
       <itemPath>b4x_types.h</itemPath>
       <itemPath>b4x_lcd.h</itemPath>
+      <itemPath>b4x_switch.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -16,6 +17,7 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>b4x_lcd.c</itemPath>
+      <itemPath>b4x_switch.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
