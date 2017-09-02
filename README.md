@@ -6,7 +6,7 @@ Brook4-XC8 is a small XC8 library for development with 8-bit PIC MCUs.
 
 ## Circuit
 
-![LCD driver circuit](https://raw.githubusercontent.com/brook-dev/brook4xc8/master/examples/brook4xc8-lcd.X/circuit.png)
+![LCD driver circuit](https://raw.githubusercontent.com/brook-dev/brook4xc8/master/examples/brook4xc8-lcd.X/schematic.png)
 
 ## Code
 
@@ -25,7 +25,7 @@ void main() {
     TRISB = 0xc0; /* RB<0:5> as output. */
     b4x_lcd_init(); /* Initialize LCD. */
     b4x_lcd_write(0, 0, "HELLO WORLD!"); /* Writes "HELLO WORLD!" on the LCD. */
-    for (;;); /* main loop. */
+    for (;;); /* Main loop. */
 }
 ```
 

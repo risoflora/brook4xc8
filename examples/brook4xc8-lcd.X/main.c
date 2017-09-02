@@ -5,7 +5,7 @@
  * Created on August 31, 2017, 6:58 PM
  */
 
-/* PIC16F628A configuration bit settings */
+/* PIC16F628A configuration bit settings. */
 #pragma config FOSC = INTOSCIO
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
@@ -27,7 +27,7 @@ B4X_LCD_SET_D7(PORTB, 5); /* Set LCD D7 port. */
 
 void main() {
     CMCON = 0x07; /* Disable comparator. */
-    TRISB = 0xc0; /* RB<0:5> as output. */
+    TRISB = 0xc0; /* RB<5:0> as output. */
     b4x_lcd_init(); /* Initialize LCD. */
     b4x_lcd_write(0, 0, "HELLO WORLD!"); /* Writes "HELLO WORLD!" on the LCD. */
     for (;;); /* Main loop. */
