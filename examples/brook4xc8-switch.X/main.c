@@ -25,7 +25,7 @@
 
 void main() {
     CMCON = 0x07; /* Disable comparator. */
-    TRISB = 0b11110101; /* Switches: RB<2:0>; LEDs: RB<3:1>. */
+    TRISB = 0xf5; /* Switches: RB<2:0>; LEDs: RB<3:1>. */
     LED_GREEN = 0; /* Turn off green LED. */
     LED_RED = 0; /* Turn off red LED. */
     /* Main loop. */
