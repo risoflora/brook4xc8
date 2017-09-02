@@ -68,7 +68,13 @@ extern "C" {
 
 /* TODO: longclick? */
 
-/* TODO: toggle? */
+/**
+ * Toggles a port bit.
+ * @param p Port bit (or any integer variable).
+ */
+#ifndef B4X_SW_TOGGLE
+#define B4X_SW_TOGGLE(p) (p) = (!p)
+#endif
 
 /* TODO: longtoggle? */
 

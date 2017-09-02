@@ -38,7 +38,7 @@ void main() {
         /* On/off red LED. */
         B4X_SW_nCLICK(SW2) {
             B4X_SW_DEBOUNCE(SW2);
-            LED_RED = !LED_RED;
+            B4X_SW_TOGGLE(LED_RED);
         }
     }
 }
