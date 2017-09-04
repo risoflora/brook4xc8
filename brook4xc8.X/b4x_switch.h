@@ -59,11 +59,21 @@ extern "C" {
 #endif
 
 /**
+ * Debounce time (in ms).
+ */
+#ifndef B4X_SW_DEBOUNCE_TIME
+#define B4X_SW_DEBOUNCE_TIME 250
+#endif
+
+/**
  * Avoid switch bouncing on #B4X_SW_CLICK or #B4X_SW_nCLICK calls.
  * @param p Port bit.
  */
 #ifndef B4X_SW_DEBOUNCE
-#define B4X_SW_DEBOUNCE(p) B4X_SW_##p##_CLICKED = 1;
+#define B4X_SW_DEBOUNCE(p) do { \
+    B4X_SW_##p##_CLICKED = 1; \
+    __delay_ms(B4X_SW_DEBOUNCE_TIME); \
+} while (0)
 #endif
 
 /* TODO: longclick? */
