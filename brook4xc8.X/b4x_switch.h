@@ -59,6 +59,38 @@ extern "C" {
 #endif
 
 /**
+ * Maps switch long clicking.
+ * @param p Port bit.
+ */
+#ifndef B4X_SW_LONG_CLICK
+#define B4X_SW_LONG_CLICK(p) \
+    static B4X_VBIT B4X_SW_##p##_CLICKED; \
+    if (!(p)) \
+        B4X_SW_##p##_CLICKED = 0; \
+    if (((p) && !B4X_SW_##p##_CLICKED)) \
+        for (unsigned char i = 0; i < 10 && (p); i++) \
+            if (i != 9) \
+                __delay_ms(100); \
+            else
+#endif
+
+/**
+ * Maps switch long clicking in pull-up style.
+ * @param p Port bit.
+ */
+#ifndef B4X_SW_LONG_nCLICK
+#define B4X_SW_LONG_nCLICK(p) \
+    static B4X_VBIT B4X_SW_##p##_CLICKED; \
+    if ((p)) \
+        B4X_SW_##p##_CLICKED = 0; \
+    if (((!p) && !B4X_SW_##p##_CLICKED)) \
+        for (unsigned char i = 0; i < 10 && (!p); i++) \
+            if (i != 9) \
+                __delay_ms(100); \
+            else
+#endif
+
+/**
  * Debounce time (in ms).
  */
 #ifndef B4X_SW_DEBOUNCE_TIME
@@ -76,8 +108,6 @@ extern "C" {
 } while (0)
 #endif
 
-/* TODO: longclick? */
-
 /**
  * Toggles a port bit.
  * @param p Port bit (or any integer variable).
@@ -85,10 +115,6 @@ extern "C" {
 #ifndef B4X_SW_TOGGLE
 #define B4X_SW_TOGGLE(p) (p) = (!p)
 #endif
-
-/* TODO: longtoggle? */
-
-/* TODO: pulse? */
 
 #ifdef __cplusplus
 }
