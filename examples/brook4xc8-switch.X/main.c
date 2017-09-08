@@ -30,6 +30,7 @@ void main() {
     TRISB = 0xd5; /* Switches: RB<2:0>; LEDs: RB<3:1>. */
     LED_GREEN = 0; /* Turn off green LED. */
     LED_RED = 0; /* Turn off red LED. */
+    LED_BLUE = 0; /* Turn off blue LED. */
     for (;;) { /* Main loop. */
         B4X_SW_CLICK(SW1) { /* On/off green LED. */
             B4X_SW_DEBOUNCE(SW1);
@@ -39,7 +40,7 @@ void main() {
             B4X_SW_DEBOUNCE(SW2);
             B4X_SW_TOGGLE(LED_RED);
         }
-        B4X_SW_LONG_CLICK(SW3) { /* On/off blue LED. */
+        B4X_SW_LONG_CLICK(SW3) { /* On/off blue LED (using long click). */
             B4X_SW_DEBOUNCE(SW3);
             B4X_SW_TOGGLE(LED_BLUE);
         }
