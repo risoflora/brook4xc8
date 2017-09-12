@@ -238,6 +238,38 @@ B4X_EXTERN void b4x_lcd_write_str(unsigned char x, unsigned char y, char *s);
  */
 B4X_EXTERN void b4x_lcd_write(unsigned char x, unsigned char y, const char *s);
 
+/**
+ * Set cursor position and writes a character on the LCD.
+ * @param x X.
+ * @param y Y.
+ */
+#define B4X_LCD_WRITE_CHR(x, y, c) do { \
+    b4x_lcd_pos(x, y); \
+    b4x_lcd_putc(c); \
+} while (0)
+
+/**
+ * Set cursor position and writes a string on the LCD that is allocated on
+ * the RAM.
+ * @param x X.
+ * @param y Y.
+ */
+#define B4X_LCD_WRITE_STR(x, y, s) do { \
+    b4x_lcd_pos(x, y); \
+    b4x_lcd_puts(s); \
+} while (0)
+
+/**
+ * Set cursor position and writes a string on the LCD that is allocated on
+ * the program memory.
+ * @param x X.
+ * @param y Y.
+ */
+#define B4X_LCD_WRITE(x, y, s) do { \
+    b4x_lcd_pos(x, y); \
+    b4x_lcd_putrs(s); \
+} while (0)
+
 #ifdef __cplusplus
 }
 #endif
