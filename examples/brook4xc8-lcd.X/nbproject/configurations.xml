@@ -4,7 +4,6 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>../../brook4xc8.X/b4x_lcd.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -21,9 +20,6 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
-  <sourceRootList>
-    <Elem>../../brook4xc8.X</Elem>
-  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="default" type="2">
@@ -40,7 +36,23 @@
       <compileType>
         <linkerTool>
           <linkerLibItems>
-            <linkerLibFileItem>../../brook4xc8.X/dist/default/production/brook4xc8.X.lpp</linkerLibFileItem>
+            <linkerLibProjectItem>
+              <makeArtifact PL="../../brook4xc8.X"
+                            CT="3"
+                            CN="default"
+                            AC="true"
+                            BL="true"
+                            WD="../../brook4xc8.X"
+                            BC="${MAKE}  -f Makefile CONF=default"
+                            DBC="${MAKE}  -f Makefile CONF=default TYPE_IMAGE=DEBUG_RUN"
+                            CC="rm -rf &quot;build/default&quot; &quot;dist/default&quot;"
+                            OP="dist/default/production/brook4xc8.X.lpp"
+                            DOP="dist/default/debug/brook4xc8.X.lpp"
+                            FL="dist/default/production/brook4xc8.X.lpp"
+                            PD="dist/default/production/brook4xc8.X.lpp"
+                            DD="dist/default/debug/brook4xc8.X.lpp">
+              </makeArtifact>
+            </linkerLibProjectItem>
           </linkerLibItems>
         </linkerTool>
         <archiverTool>

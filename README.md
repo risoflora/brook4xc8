@@ -11,7 +11,7 @@ Brook4-XC8 is a small XC8 library for development with 8-bit PIC MCUs.
 ## Code
 
 ```c
-#include "b4x_lcd.h"
+#include <b4x_lcd.h>
 
 B4X_LCD_SET_RS(PORTB, 0); /* Set LCD RS port. */
 B4X_LCD_SET_E(PORTB, 1); /* Set LCD E port. */
@@ -38,7 +38,7 @@ void main() {
 ## Code
 
 ```c
-#include "b4x_switch.h"
+#include <b4x_switch.h>
 
 #define SW1 RB0 /* Set SW1 pin. */
 #define LED_GREEN RB1 /* Set green LED pin. */

@@ -16,7 +16,7 @@
 #pragma config CP = OFF
 
 #include <xc.h>
-#include "b4x_switch.h"
+#include <b4x_switch.h>
 
 #define SW1 RB0 /* Set SW1 pin. */
 #define LED_GREEN RB1 /* Set green LED pin. */

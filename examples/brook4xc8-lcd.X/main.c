@@ -16,7 +16,7 @@
 #pragma config CP = OFF
 
 #include <xc.h>
-#include "b4x_lcd.h"
+#include <b4x_lcd.h>
 
 B4X_LCD_SET_RS(PORTB, 0); /* Set LCD RS port. */
 B4X_LCD_SET_E(PORTB, 1); /* Set LCD E port. */
