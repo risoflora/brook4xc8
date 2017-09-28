@@ -37,9 +37,10 @@ Package-*.bash
 **/nbdist/**
 **/nbproject/private/**
 #**/dist/**
-/examples/brook4xc8-lcd.X/nbproject/private/
 /brook4xc8.X/dist/default/
+/examples/brook4xc8-lcd.X/nbproject/private/
+/examples/brook4xc8-lcd.X/build/default/
+/examples/brook4xc8-lcd.X/dist/default/
 /examples/brook4xc8-switch.X/nbproject/private/
 /examples/brook4xc8-switch.X/build/default/
 /examples/brook4xc8-switch.X/dist/default/
-/examples/brook4xc8-lcd.X/dist/default/
