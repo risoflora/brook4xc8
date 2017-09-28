@@ -36,14 +36,36 @@ extern "C" {
 
 /**
  * Maps switch clicking.
+ * @param v Control variable.
+ * @param p Port bit.
+ */
+#ifndef B4X_SW_CLICK2
+#define B4X_SW_CLICK2(v, p) \
+    if (!(p)) \
+        (v) = 0; \
+    if (((p) && !(v)))
+#endif
+
+/**
+ * Maps switch clicking.
  * @param p Port bit.
  */
 #ifndef B4X_SW_CLICK
 #define B4X_SW_CLICK(p) \
     static B4X_VBIT B4X_SW_##p##_CLICKED; \
-    if (!(p)) \
-        B4X_SW_##p##_CLICKED = 0; \
-    if (((p) && !B4X_SW_##p##_CLICKED))
+    B4X_SW_CLICK2(B4X_SW_##p##_CLICKED, p)
+#endif
+
+/**
+ * Maps switch clicking in pull-up style.
+ * @param v Control variable.
+ * @param p Port bit.
+ */
+#ifndef B4X_SW_nCLICK2
+#define B4X_SW_nCLICK2(v, p) \
+    if ((p)) \
+        v = 0; \
+    if (((!p) && !(v)))
 #endif
 
 /**
@@ -53,9 +75,23 @@ extern "C" {
 #ifndef B4X_SW_nCLICK
 #define B4X_SW_nCLICK(p) \
     static B4X_VBIT B4X_SW_##p##_CLICKED; \
-    if ((p)) \
-        B4X_SW_##p##_CLICKED = 0; \
-    if (((!p) && !B4X_SW_##p##_CLICKED))
+    B4X_SW_nCLICK2(B4X_SW_##p##_CLICKED, p)
+#endif
+
+/**
+ * Maps switch long clicking.
+ * @param v Control variable.
+ * @param p Port bit.
+ */
+#ifndef B4X_SW_LONG_CLICK2
+#define B4X_SW_LONG_CLICK2(v, p) \
+    if (!(p)) \
+        (v) = 0; \
+    if (((p) && !(v))) \
+        for (unsigned char i = 0; i < 10 && (p); i++) \
+            if (i != 9) \
+                __delay_ms(100); \
+            else
 #endif
 
 /**
@@ -65,10 +101,20 @@ extern "C" {
 #ifndef B4X_SW_LONG_CLICK
 #define B4X_SW_LONG_CLICK(p) \
     static B4X_VBIT B4X_SW_##p##_CLICKED; \
-    if (!(p)) \
-        B4X_SW_##p##_CLICKED = 0; \
-    if (((p) && !B4X_SW_##p##_CLICKED)) \
-        for (unsigned char i = 0; i < 10 && (p); i++) \
+    B4X_SW_LONG_CLICK2(B4X_SW_##p##_CLICKED, p)
+#endif
+
+/**
+ * Maps switch long clicking in pull-up style.
+ * @param v Control variable.
+ * @param p Port bit.
+ */
+#ifndef B4X_SW_LONG_nCLICK2
+#define B4X_SW_LONG_nCLICK2(v, p) \
+    if ((p)) \
+        (v) = 0; \
+    if (((!p) && !(v))) \
+        for (unsigned char i = 0; i < 10 && (!p); i++) \
             if (i != 9) \
                 __delay_ms(100); \
             else
@@ -81,13 +127,7 @@ extern "C" {
 #ifndef B4X_SW_LONG_nCLICK
 #define B4X_SW_LONG_nCLICK(p) \
     static B4X_VBIT B4X_SW_##p##_CLICKED; \
-    if ((p)) \
-        B4X_SW_##p##_CLICKED = 0; \
-    if (((!p) && !B4X_SW_##p##_CLICKED)) \
-        for (unsigned char i = 0; i < 10 && (!p); i++) \
-            if (i != 9) \
-                __delay_ms(100); \
-            else
+    B4X_SW_LONG_nCLICK2(B4X_SW_##p##_CLICKED, p)
 #endif
 
 /**
@@ -95,6 +135,17 @@ extern "C" {
  */
 #ifndef B4X_SW_DEBOUNCE_TIME
 #define B4X_SW_DEBOUNCE_TIME 250
+#endif
+
+/**
+ * Avoid switch bouncing on #B4X_SW_CLICK2 or #B4X_SW_nCLICK2 calls.
+ * @param p Port bit.
+ */
+#ifndef B4X_SW_DEBOUNCE2
+#define B4X_SW_DEBOUNCE2(v, p) do { \
+    (v) = 1; \
+    __delay_ms(B4X_SW_DEBOUNCE_TIME); \
+} while (0)
 #endif
 
 /**
