@@ -74,7 +74,7 @@ void main() {
 
 ## Circuit
 
-![EEPROM schematic](https://raw.githubusercontent.com/brook-dev/brook4xc8/master/examples/brook4xc8-eeprom.X/simulation.gif)
+![EEPROM schematic](https://raw.githubusercontent.com/brook-dev/brook4xc8/master/examples/brook4xc8-eeprom.X/schematic.gif)
 
 ## Code
 
