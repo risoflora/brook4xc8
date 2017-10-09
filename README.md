@@ -6,7 +6,7 @@ Brook4-XC8 is a small XC8 library for development with 8-bit PIC MCUs.
 
 ## Circuit
 
-![LCD driver circuit](https://raw.githubusercontent.com/brook-dev/brook4xc8/master/examples/brook4xc8-lcd.X/schematic.png)
+![LCD driver schematic](https://raw.githubusercontent.com/brook-dev/brook4xc8/master/examples/brook4xc8-lcd.X/schematic.png)
 
 ## Code
 
@@ -33,7 +33,7 @@ void main() {
 
 ## Circuit
 
-![LCD driver circuit](https://raw.githubusercontent.com/brook-dev/brook4xc8/master/examples/brook4xc8-switch.X/schematic.png)
+![Switch schematic](https://raw.githubusercontent.com/brook-dev/brook4xc8/master/examples/brook4xc8-switch.X/schematic.png)
 
 ## Code
 
@@ -66,6 +66,35 @@ void main() {
             B4X_SW_DEBOUNCE(SW3);
             B4X_SW_TOGGLE(LED_BLUE);
         }
+    }
+}
+```
+
+# EEPROM writing/reading
+
+## Circuit
+
+![EEPROM schematic](https://raw.githubusercontent.com/brook-dev/brook4xc8/master/examples/brook4xc8-eeprom.X/simulation.gif)
+
+## Code
+
+```c
+#include <xc.h>
+#include <b4x_switch.h>
+#include <b4x_eeprom.h>
+
+#define LED GP0 /* Set GP0 as LED driver. */
+
+volatile bit LED_STATUS; /* Handle LED status. */
+
+void main() {
+    CMCON = 0x07; /* Disable comparator. */
+    TRISIO = 0x3e; /* Configure output pin. */
+    for (;;) { /* Main loop. */
+        B4X_SW_TOGGLE(LED_STATUS); /* Toggle LED status. */
+        B4X_EEPROM_WRITE(3, (unsigned char) LED_STATUS); /* Write LED status to EEPROM. */
+        B4X_EEPROM_READ(3, LED); /* Read LED status from EEPROM. */
+        __delay_ms(500); /* Wait for 500 ms. */
     }
 }
 ```
