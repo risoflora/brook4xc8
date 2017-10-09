@@ -79,7 +79,6 @@ void main() {
 ## Code
 
 ```c
-#include <xc.h>
 #include <b4x_switch.h>
 #include <b4x_eeprom.h>
 
