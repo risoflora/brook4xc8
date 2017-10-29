@@ -36,28 +36,28 @@ extern "C" {
 #include "b4x_types.h"
 
 /* Special characters */
-#define B4X_RIGHT_ARROW 0x7E
-#define B4X_LEFT_ARROW 0x7F
-#define B4X_START_FRAME 0xA2
-#define B4X_END_FRAME 0xA3
-#define B4X_SEPARATOR 0xA5
-#define B4X_EMPTY_BOX 0xDB
-#define B4X_ALPHA 0xE0
-#define B4X_BETA 0xE2
-#define B4X_EPSILON 0xE3
-#define B4X_MU 0xE4
-#define B4X_SMALL_SIGMA 0xE5
-#define B4X_RHO 0xE6
-#define B4X_SQRT_SYMBOL 0xE8
-#define B4X_CENT_SYMBOL 0xEC
-#define B4X_THETA 0xF2
-#define B4X_INFINITY 0xF3
-#define B4X_OMEGA 0xF4
-#define B4X_BIG_SIGMA 0xF6
-#define B4X_PI_SYMBOL 0xF7
-#define B4X_X_BAR 0xF8
-#define B4X_DIVISION 0xFD
-#define B4X_BLACK_SQUARE 0xFF
+#define B4X_RIGHT_ARROW 0x7e
+#define B4X_LEFT_ARROW 0x7f
+#define B4X_START_FRAME 0xa2
+#define B4X_END_FRAME 0xa3
+#define B4X_SEPARATOR 0xa5
+#define B4X_EMPTY_BOX 0xdb
+#define B4X_ALPHA 0xe0
+#define B4X_BETA 0xe2
+#define B4X_EPSILON 0xe3
+#define B4X_MU 0xe4
+#define B4X_SMALL_SIGMA 0xe5
+#define B4X_RHO 0xe6
+#define B4X_SQRT_SYMBOL 0xe8
+#define B4X_CENT_SYMBOL 0xec
+#define B4X_THETA 0xf2
+#define B4X_INFINITY 0xf3
+#define B4X_OMEGA 0xf4
+#define B4X_BIG_SIGMA 0xf6
+#define B4X_PI_SYMBOL 0xf7
+#define B4X_X_BAR 0xf8
+#define B4X_DIVISION 0xfd
+#define B4X_BLACK_SQUARE 0xff
 
 /**
  * Selects registers.
