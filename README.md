@@ -11,6 +11,7 @@ Brook4-XC8 is a small XC8 library for development with 8-bit PIC MCUs.
 ## Code
 
 ```c
+#include <b4x_macros.h>
 #include <b4x_lcd.h>
 
 B4X_LCD_SET_RS(PORTB, 0); /* Set LCD RS port. */
@@ -25,7 +26,7 @@ void main() {
     TRISB = 0xc0; /* RB<5:0> as output. */
     b4x_lcd_init(); /* Initialize LCD. */
     b4x_lcd_write(0, 0, "HELLO WORLD!"); /* Writes "HELLO WORLD!" on the LCD. */
-    for (;;); /* Main loop. */
+    B4X_RUN(); /* Main loop. */
 }
 ```
 
@@ -38,6 +39,7 @@ void main() {
 ## Code
 
 ```c
+#include <b4x_macros.h>
 #include <b4x_switch.h>
 
 #define SW1 RB0 /* Set SW1 pin. */
@@ -53,7 +55,7 @@ void main() {
     LED_GREEN = 0; /* Turn off green LED. */
     LED_RED = 0; /* Turn off red LED. */
     LED_BLUE = 0; /* Turn off blue LED. */
-    for (;;) { /* Main loop. */
+    B4X_RUN() { /* Main loop. */
         B4X_SW_CLICK(SW1) { /* On/off green LED. */
             B4X_SW_DEBOUNCE(SW1);
             LED_GREEN = !LED_GREEN;
@@ -89,7 +91,7 @@ volatile bit LED_STATUS; /* Handle LED status. */
 void main() {
     CMCON = 0x07; /* Disable comparator. */
     TRISIO = 0x3e; /* Configure output pin. */
-    for (;;) { /* Main loop. */
+    B4X_RUN() { /* Main loop. */
         B4X_SW_TOGGLE(LED_STATUS); /* Toggle LED status. */
         B4X_EEPROM_WRITE(3, (unsigned char) LED_STATUS); /* Write LED status to EEPROM. */
         B4X_EEPROM_READ(3, LED); /* Read LED status from EEPROM. */

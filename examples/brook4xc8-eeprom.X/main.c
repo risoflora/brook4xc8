@@ -15,6 +15,7 @@
 #pragma config CPD = OFF
 
 #include <xc.h>
+#include <b4x_macros.h>
 #include <b4x_switch.h>
 #include <b4x_eeprom.h>
 
@@ -25,7 +26,7 @@ volatile bit LED_STATUS; /* Handle LED status. */
 void main() {
     CMCON = 0x07; /* Disable comparator. */
     TRISIO = 0x3e; /* Configure output pin. */
-    for (;;) { /* Main loop. */
+    B4X_RUN() { /* Main loop. */
         B4X_SW_TOGGLE(LED_STATUS); /* Toggle LED status. */
         B4X_EEPROM_WRITE(3, (unsigned char) LED_STATUS); /* Write LED status to EEPROM. */
         B4X_EEPROM_READ(3, LED); /* Read LED status from EEPROM. */

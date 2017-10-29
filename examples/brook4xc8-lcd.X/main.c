@@ -16,6 +16,7 @@
 #pragma config CP = OFF
 
 #include <xc.h>
+#include <b4x_macros.h>
 #include <b4x_lcd.h>
 
 B4X_LCD_SET_RS(PORTB, 0); /* Set LCD RS port. */
@@ -30,5 +31,5 @@ void main() {
     TRISB = 0xc0; /* RB<5:0> as output. */
     b4x_lcd_init(); /* Initialize LCD. */
     b4x_lcd_write(0, 0, "HELLO WORLD!"); /* Writes "HELLO WORLD!" on the LCD. */
-    for (;;); /* Main loop. */
+    B4X_RUN(); /* Main loop. */
 }

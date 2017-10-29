@@ -16,6 +16,7 @@
 #pragma config CP = OFF
 
 #include <xc.h>
+#include <b4x_macros.h>
 #include <b4x_switch.h>
 
 #define SW1 RB0 /* Set SW1 pin. */
@@ -31,7 +32,7 @@ void main() {
     LED_GREEN = 0; /* Turn off green LED. */
     LED_RED = 0; /* Turn off red LED. */
     LED_BLUE = 0; /* Turn off blue LED. */
-    for (;;) { /* Main loop. */
+    B4X_RUN() { /* Main loop. */
         B4X_SW_CLICK(SW1) { /* On/off green LED. */
             B4X_SW_DEBOUNCE(SW1);
             LED_GREEN = !LED_GREEN;

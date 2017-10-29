@@ -45,6 +45,11 @@ extern "C" {
 #define B4X_AT(p, n) @(((unsigned) &(p)) * 8) + (n)
 #endif
 
+/**
+ * Main loop.
+ */
+#define B4X_RUN() for(;;)
+
 #ifdef __cplusplus
 }
 #endif
