@@ -239,6 +239,14 @@ B4X_EXTERN void b4x_lcd_write_str(unsigned char x, unsigned char y, char *s);
 B4X_EXTERN void b4x_lcd_write(unsigned char x, unsigned char y, const char *s);
 
 /**
+ * Set cursor position and the content length to be erased from the LCD.
+ * @param x X.
+ * @param y Y.
+ * @param l Content length.
+ */
+B4X_EXTERN void b4x_lcd_erase(unsigned char x, unsigned char y, unsigned char l);
+
+/**
  * Set cursor position and writes a character on the LCD.
  * @param x X.
  * @param y Y.
@@ -268,6 +276,18 @@ B4X_EXTERN void b4x_lcd_write(unsigned char x, unsigned char y, const char *s);
 #define B4X_LCD_WRITE(x, y, s) do { \
     b4x_lcd_pos((x), (y)); \
     b4x_lcd_putrs((s)); \
+} while (0)
+
+/**
+ * Set cursor position and the content length to be erased from the LCD.
+ * @param x X.
+ * @param y Y.
+ * @param l Content length.
+ */
+#define B4X_LCD_ERASE(x, y, l) do { \
+    b4x_lcd_pos((x), (y)); \
+    for (unsigned char i = 0; i < (l); i++) \
+        b4x_lcd_putc(0x20); \
 } while (0)
 
 #ifdef __cplusplus

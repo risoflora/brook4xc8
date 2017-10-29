@@ -133,3 +133,7 @@ void b4x_lcd_write(unsigned char x, unsigned char y, const char *s) {
     b4x_lcd_pos(x, y);
     b4x_lcd_putrs(s);
 }
+
+void b4x_lcd_erase(unsigned char x, unsigned char y, unsigned char l) {
+    B4X_LCD_ERASE(x, y, l);
+}
