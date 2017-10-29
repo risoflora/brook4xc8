@@ -244,8 +244,8 @@ B4X_EXTERN void b4x_lcd_write(unsigned char x, unsigned char y, const char *s);
  * @param y Y.
  */
 #define B4X_LCD_WRITE_CHR(x, y, c) do { \
-    b4x_lcd_pos(x, y); \
-    b4x_lcd_putc(c); \
+    b4x_lcd_pos((x), (y)); \
+    b4x_lcd_putc((c)); \
 } while (0)
 
 /**
@@ -255,8 +255,8 @@ B4X_EXTERN void b4x_lcd_write(unsigned char x, unsigned char y, const char *s);
  * @param y Y.
  */
 #define B4X_LCD_WRITE_STR(x, y, s) do { \
-    b4x_lcd_pos(x, y); \
-    b4x_lcd_puts(s); \
+    b4x_lcd_pos((x), (y)); \
+    b4x_lcd_puts((s)); \
 } while (0)
 
 /**
@@ -266,8 +266,8 @@ B4X_EXTERN void b4x_lcd_write(unsigned char x, unsigned char y, const char *s);
  * @param y Y.
  */
 #define B4X_LCD_WRITE(x, y, s) do { \
-    b4x_lcd_pos(x, y); \
-    b4x_lcd_putrs(s); \
+    b4x_lcd_pos((x), (y)); \
+    b4x_lcd_putrs((s)); \
 } while (0)
 
 #ifdef __cplusplus
