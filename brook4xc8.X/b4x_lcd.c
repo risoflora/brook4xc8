@@ -33,6 +33,9 @@
 #include "b4x_macros.h"
 #include "b4x_lcd.h"
 
+#pragma warning push
+#pragma warning disable 520
+
 static void _b4x_lcd_set_out(unsigned char data) {
     if (data & 1)
         B4X_LCD_D4 = 1;
@@ -137,3 +140,5 @@ void b4x_lcd_write(unsigned char x, unsigned char y, const char *s) {
 void b4x_lcd_erase(unsigned char x, unsigned char y, unsigned char l) {
     B4X_LCD_ERASE(x, y, l);
 }
+
+#pragma warning pop
