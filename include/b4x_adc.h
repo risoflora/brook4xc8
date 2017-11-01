@@ -26,7 +26,7 @@
  */
 
 #ifndef B4X_ADC_H
-#define	B4X_ADC_H
+#define B4X_ADC_H
 
 #include <xc.h>
 #include "b4x_types.h"
