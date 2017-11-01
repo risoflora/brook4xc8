@@ -26,6 +26,7 @@ volatile bit LED_STATUS; /* Handle LED status. */
 void main() {
     CMCON = 0x07; /* Disable comparator. */
     TRISIO = 0x3e; /* Configure output pin. */
+
     B4X_RUN() { /* Main loop. */
         B4X_SW_TOGGLE(LED_STATUS); /* Toggle LED status. */
         B4X_EEPROM_WRITE(3, (unsigned char) LED_STATUS); /* Write LED status to EEPROM. */
