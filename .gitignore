@@ -46,3 +46,5 @@ Package-*.bash
 /examples/brook4xc8-switch.X/dist/default/
 /examples/brook4xc8-eeprom.X/nbproject/private/
 /examples/brook4xc8-eeprom.X/dist/default/
+/examples/brook4xc8-adc.X/nbproject/private/
+/examples/brook4xc8-adc.X/dist/default/
