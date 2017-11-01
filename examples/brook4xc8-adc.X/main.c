@@ -6,7 +6,7 @@
  */
 
 /* PIC16F676 configuration bit settings. */
-#pragma config FOSC = INTRCIO
+#pragma config FOSC = XT
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
 #pragma config MCLRE = OFF
