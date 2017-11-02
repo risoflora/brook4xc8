@@ -36,6 +36,19 @@ extern "C" {
 #endif
 
 /**
+ * Converts ADC value to Vref.
+ * @param r Vref (e.g: 2.5).
+ * @param v ADC value (e.g: dtovr(2.5, 1023) = 2.5).
+ */
+#define dtovr(r, v) (((r) / 0x3ff) * (v))
+
+/**
+ * Converts ADC value to VDD.
+ * @param v ADC value (e.g: dtovr(1023) = 5.0).
+ */
+#define dtov(v) dtovr(5.0, (v))
+
+/**
  * Delay time for ADC preparing.
  */
 #ifndef B4X_ADC_VAL_DELAY_US
