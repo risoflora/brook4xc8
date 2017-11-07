@@ -1,3 +1,2 @@
-- possible feature: ARV's millis() like routine; (we are studying its feasibility ;-) )
 - LM35 driver (with negative temperature support);
 - delete this TODO file. :-)
