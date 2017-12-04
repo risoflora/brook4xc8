@@ -36,11 +36,16 @@ extern "C" {
 #endif
 
 /**
+ * Maximum ADC value.
+ */
+#define B4X_ADC_MAX 0x3ff
+
+/**
  * Converts ADC value to Vref.
  * @param r Vref (e.g: 2.5).
  * @param v ADC value (e.g: B4X_ADC_dtovr(2.5, 1023) = 2.5).
  */
-#define B4X_ADC_dtovr(r, v) (((r) / 0x3ff) * (v))
+#define B4X_ADC_dtovr(r, v) (((r) / (B4X_ADC_MAX)) * (v))
 
 /**
  * Converts ADC value to VDD.
