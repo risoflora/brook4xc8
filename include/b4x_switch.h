@@ -65,7 +65,7 @@ extern "C" {
 #define B4X_SW_nCLICK2(v, p) \
     if ((p)) \
         v = 0; \
-    if (((!p) && !(v)))
+    if ((!(p) && !(v)))
 #endif
 
 /**
@@ -113,8 +113,8 @@ extern "C" {
 #define B4X_SW_LONG_nCLICK2(v, p) \
     if ((p)) \
         (v) = 0; \
-    if (((!p) && !(v))) \
-        for (unsigned char i = 0; i < 10 && (!p); i++) \
+    if ((!(p) && !(v))) \
+        for (unsigned char i = 0; i < 10 && !(p); i++) \
             if (i != 9) \
                 __delay_ms(100); \
             else
@@ -164,7 +164,7 @@ extern "C" {
  * @param p Port bit (or any integer variable).
  */
 #ifndef B4X_SW_TOGGLE
-#define B4X_SW_TOGGLE(p) (p) = (!p)
+#define B4X_SW_TOGGLE(p) (p) = !(p)
 #endif
 
 #ifdef __cplusplus
