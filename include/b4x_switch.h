@@ -138,7 +138,7 @@ extern "C" {
 #endif
 
 /**
- * Avoid switch bouncing on #B4X_SW_CLICK2 or #B4X_SW_nCLICK2 calls.
+ * Avoids switch bouncing on #B4X_SW_CLICK2 or #B4X_SW_nCLICK2 calls.
  * @param p Port bit.
  */
 #ifndef B4X_SW_DEBOUNCE2
@@ -149,7 +149,7 @@ extern "C" {
 #endif
 
 /**
- * Avoid switch bouncing on #B4X_SW_CLICK or #B4X_SW_nCLICK calls.
+ * Avoids switch bouncing on #B4X_SW_CLICK or #B4X_SW_nCLICK calls.
  * @param p Port bit.
  */
 #ifndef B4X_SW_DEBOUNCE
@@ -160,11 +160,11 @@ extern "C" {
 #endif
 
 /**
- * Toggles a port bit.
- * @param p Port bit (or any integer variable).
+ * Toggles a bit flag.
+ * @param p Bit flag (or any integer flag).
  */
 #ifndef B4X_SW_TOGGLE
-#define B4X_SW_TOGGLE(p) (p) = !(p)
+#define B4X_SW_TOGGLE(f) (f) = !(f)
 #endif
 
 #ifdef __cplusplus
