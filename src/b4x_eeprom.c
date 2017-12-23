@@ -37,6 +37,6 @@ void b4x_eeprom_read2_int(unsigned char addr, unsigned int *val) {
 
 unsigned int b4x_eeprom_read_int(unsigned char addr) {
     unsigned int ret;
-    b4x_eeprom_read2_int(addr, &ret);
+    B4X_EEPROM_READ_INT(addr, ret);
     return ret;
 }
