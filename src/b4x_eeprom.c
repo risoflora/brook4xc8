@@ -31,6 +31,12 @@ void b4x_eeprom_write_int(unsigned char addr, unsigned int val) {
     B4X_EEPROM_WRITE_INT(addr, val);
 }
 
-void b4x_eeprom_read_int(unsigned char addr, unsigned int *val) {
+void b4x_eeprom_read2_int(unsigned char addr, unsigned int *val) {
     B4X_EEPROM_READ_INT(addr, *val);
+}
+
+unsigned int b4x_eeprom_read_int(unsigned char addr) {
+    unsigned int ret;
+    b4x_eeprom_read2_int(addr, &ret);
+    return ret;
 }

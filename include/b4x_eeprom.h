@@ -84,7 +84,7 @@ extern "C" {
 /**
  * Read int from the EEPROM memory (inline).
  * @param addr Memory address.
- * @param val Char value.
+ * @param val Int value.
  */
 #define B4X_EEPROM_READ_INT(addr, val) do { \
     (val) = eeprom_read(((addr) + 3)); \
@@ -108,9 +108,16 @@ B4X_EXTERN void b4x_eeprom_write_int(unsigned char addr, unsigned int val);
 /**
  * Read int from the EEPROM memory.
  * @param addr Memory address.
- * @param val Char value.
+ * @param val Int value.
  */
-B4X_EXTERN void b4x_eeprom_read_int(unsigned char addr, unsigned int *val);
+B4X_EXTERN unsigned int b4x_eeprom_read_int(unsigned char addr);
+
+/**
+ * Read int from the EEPROM memory.
+ * @param addr Memory address.
+ * @param val Int value address.
+ */
+B4X_EXTERN void b4x_eeprom_read2_int(unsigned char addr, unsigned int *val);
 
 /* B4X_EEPROM_*_INT()/b4x_eeprom_*_int() was inspired by:
  * <https://electronics.stackexchange.com/questions/191414/mplabx-how-to-read-write-4-bytes-unsigned-integer-to-eeprom> */
