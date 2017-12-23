@@ -69,11 +69,10 @@ extern "C" {
  * @param val Int value.
  */
 #define B4X_EEPROM_WRITE_INT(addr, val) do { \
-    EEPROM_WRITE((addr), (val) & 0xff); \
-    EEPROM_WRITE((addr) + 1, ((val) >> 8 & 0xff)); \
-    EEPROM_WRITE((addr) + 2, ((val) >> 16 & 0xff)); \
-    EEPROM_WRITE((addr) + 3, ((val) >> 24 & 0xff)); \
-    while (WR); \
+    eeprom_write((addr), (val) & 0xff); \
+    eeprom_write((addr) + 1, ((val) >> 8 & 0xff)); \
+    eeprom_write((addr) + 2, ((val) >> 16 & 0xff)); \
+    eeprom_write((addr) + 3, ((val) >> 24 & 0xff)); \
 } while (0)
 
 #pragma warning pop
@@ -84,14 +83,13 @@ extern "C" {
  * @param val Char value.
  */
 #define B4X_EEPROM_READ_INT(addr, val) do { \
-    val = EEPROM_READ((addr) + 3); \
+    val = eeprom_read((addr) + 3); \
     val <<= 8; \
-    val += EEPROM_READ((addr) + 2); \
+    val += eeprom_read((addr) + 2); \
     val <<= 8; \
-    val += EEPROM_READ((addr) + 1); \
+    val += eeprom_read((addr) + 1); \
     val <<= 8; \
-    val += EEPROM_READ((addr)); \
-    while (RD); \
+    val += eeprom_read((addr)); \
 } while (0)
 
 /**
