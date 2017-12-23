@@ -41,9 +41,9 @@ extern "C" {
 #define B4X_EEPROM_SIZE _EEPROMSIZE
 
 /**
- * Write data to the EEPROM memory.
+ * Write char to the EEPROM memory.
  * @param addr Memory address.
- * @param val Data value.
+ * @param val Char value.
  */
 #define B4X_EEPROM_WRITE(addr, val) do { \
     EEPROM_WRITE((addr), (val)); \
@@ -51,14 +51,65 @@ extern "C" {
 } while (0)
 
 /**
- * Read data from the EEPROM memory.
+ * Read char from the EEPROM memory.
  * @param addr Memory address.
- * @param val Data value.
+ * @param val Char value.
  */
 #define B4X_EEPROM_READ(addr, val) do { \
     (val) = EEPROM_READ((addr)); \
     while (RD); \
 } while (0)
+
+#pragma warning push
+#pragma warning disable 751
+
+/**
+ * Write int to the EEPROM memory (inline).
+ * @param addr Memory address.
+ * @param val Int value.
+ */
+#define B4X_EEPROM_WRITE_INT(addr, val) do { \
+    EEPROM_WRITE((addr), (val) & 0xff); \
+    EEPROM_WRITE((addr) + 1, ((val) >> 8 & 0xff)); \
+    EEPROM_WRITE((addr) + 2, ((val) >> 16 & 0xff)); \
+    EEPROM_WRITE((addr) + 3, ((val) >> 24 & 0xff)); \
+    while (WR); \
+} while (0)
+
+#pragma warning pop
+
+/**
+ * Read int from the EEPROM memory (inline).
+ * @param addr Memory address.
+ * @param val Char value.
+ */
+#define B4X_EEPROM_READ_INT(addr, val) do { \
+    val = EEPROM_READ((addr) + 3); \
+    val <<= 8; \
+    val += EEPROM_READ((addr) + 2); \
+    val <<= 8; \
+    val += EEPROM_READ((addr) + 1); \
+    val <<= 8; \
+    val += EEPROM_READ((addr)); \
+    while (RD); \
+} while (0)
+
+/**
+ * Write int to the EEPROM memory.
+ * @param addr Memory address.
+ * @param val Int value.
+ */
+B4X_EXTERN void b4x_eeprom_write_int(unsigned char addr, unsigned int val);
+
+/**
+ * Read int from the EEPROM memory.
+ * @param addr Memory address.
+ * @param val Char value.
+ */
+B4X_EXTERN void b4x_eeprom_read_int(unsigned char addr, unsigned int *val);
+
+/* B4X_EEPROM_*_INT()/b4x_eeprom_*_int() was inspired by:
+ * <https://electronics.stackexchange.com/questions/191414/mplabx-how-to-read-write-4-bytes-unsigned-integer-to-eeprom> */
 
 #ifdef __cplusplus
 }
