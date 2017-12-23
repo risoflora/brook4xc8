@@ -27,9 +27,6 @@
 
 #include "b4x_eeprom.h"
 
-#pragma warning push
-#pragma warning disable 753
-
 void b4x_eeprom_write_int(unsigned char addr, unsigned int val) {
     B4X_EEPROM_WRITE_INT(addr, val);
 }
@@ -37,5 +34,3 @@ void b4x_eeprom_write_int(unsigned char addr, unsigned int val) {
 void b4x_eeprom_read_int(unsigned char addr, unsigned int *val) {
     B4X_EEPROM_READ_INT(addr, *val);
 }
-
-#pragma warning pop
