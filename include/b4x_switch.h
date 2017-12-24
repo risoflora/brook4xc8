@@ -53,7 +53,7 @@ extern "C" {
 #ifndef B4X_SW_CLICK
 #define B4X_SW_CLICK(p) \
     static B4X_VBIT B4X_SW_##p##_CLICKED; \
-    B4X_SW_CLICK2(B4X_SW_##p##_CLICKED, p)
+    B4X_SW_CLICK2(B4X_SW_##p##_CLICKED, (p))
 #endif
 
 /**
@@ -64,7 +64,7 @@ extern "C" {
 #ifndef B4X_SW_nCLICK2
 #define B4X_SW_nCLICK2(v, p) \
     if ((p)) \
-        v = 0; \
+        (v) = 0; \
     if ((!(p) && !(v)))
 #endif
 
@@ -75,7 +75,7 @@ extern "C" {
 #ifndef B4X_SW_nCLICK
 #define B4X_SW_nCLICK(p) \
     static B4X_VBIT B4X_SW_##p##_CLICKED; \
-    B4X_SW_nCLICK2(B4X_SW_##p##_CLICKED, p)
+    B4X_SW_nCLICK2(B4X_SW_##p##_CLICKED, (p))
 #endif
 
 /**
@@ -101,7 +101,7 @@ extern "C" {
 #ifndef B4X_SW_LONG_CLICK
 #define B4X_SW_LONG_CLICK(p) \
     static B4X_VBIT B4X_SW_##p##_CLICKED; \
-    B4X_SW_LONG_CLICK2(B4X_SW_##p##_CLICKED, p)
+    B4X_SW_LONG_CLICK2(B4X_SW_##p##_CLICKED, (p))
 #endif
 
 /**
@@ -127,7 +127,7 @@ extern "C" {
 #ifndef B4X_SW_LONG_nCLICK
 #define B4X_SW_LONG_nCLICK(p) \
     static B4X_VBIT B4X_SW_##p##_CLICKED; \
-    B4X_SW_LONG_nCLICK2(B4X_SW_##p##_CLICKED, p)
+    B4X_SW_LONG_nCLICK2(B4X_SW_##p##_CLICKED, (p))
 #endif
 
 /**

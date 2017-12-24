@@ -38,20 +38,26 @@ extern "C" {
 /**
  * Maximum ADC value.
  */
+#ifndef B4X_ADC_MAX
 #define B4X_ADC_MAX 0x3ff
+#endif
 
 /**
  * Converts ADC value to Vref.
  * @param r Vref (e.g: 2.5).
  * @param v ADC value (e.g: B4X_ADC_dtovr(2.5, 1023) = 2.5).
  */
+#ifndef B4X_ADC_dtovr
 #define B4X_ADC_dtovr(r, v) (((r) / (B4X_ADC_MAX)) * (v))
+#endif
 
 /**
  * Converts ADC value to VDD.
  * @param v ADC value (e.g: B4X_ADC_dtov(1023) = 5.0).
  */
+#ifndef B4X_ADC_dtov
 #define B4X_ADC_dtov(v) B4X_ADC_dtovr(5.0, (v))
+#endif
 
 /**
  * Delay time for ADC preparing.
@@ -63,46 +69,56 @@ extern "C" {
 /**
  * Initializes ADC module.
  */
+#ifndef B4X_ADC_INIT
 #define B4X_ADC_INIT() do { \
     ADFM = 1; \
     ADON = 1; \
 } while (0)
+#endif
 
 /**
  * Selects ADC channel.
  * @param ch ADC channel.
  */
+#ifndef B4X_ADC_CHANNEL
 #define B4X_ADC_CHANNEL(ch) do { \
     ADCON0bits.CHS = (ch); \
 } while (0)
+#endif
 
 /**
  * Prepares ADC for reading.
  */
+#ifndef B4X_ADC_PREPARE
 #define B4X_ADC_PREPARE() do { \
     __delay_us(B4X_ADC_VAL_DELAY_US); \
     GO_nDONE = 1; \
     while (GO_nDONE); \
 } while (0)
+#endif
 
 /**
  * Get ADC value in place.
  * @param val Variable address for value getting.
  */
+#ifndef B4X_ADC_VAL2
 #define B4X_ADC_VAL2(val) do { \
     B4X_ADC_PREPARE(); \
     *(val) = (ADRESH << 8) | ADRESL; \
 } while (0)
+#endif
 
 /**
  * Get ADC value by channel in place.
  * @param ch ADC channel.
  * @param val Variable address for value getting.
  */
+#ifndef B4X_ADC_VAL
 #define B4X_ADC_VAL(ch, val) do { \
     B4X_ADC_CHANNEL((ch)); \
     B4X_ADC_VAL2((val)); \
 } while (0)
+#endif
 
 /**
  * Initializes ADC module.

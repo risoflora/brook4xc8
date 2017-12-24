@@ -38,27 +38,33 @@ extern "C" {
 /**
  * EEPROM size.
  */
+#ifnde B4X_EEPROM_SIZE
 #define B4X_EEPROM_SIZE _EEPROMSIZE
+#endif
 
 /**
  * Write char to the EEPROM memory.
  * @param addr Memory address.
  * @param val Char value.
  */
+#ifndef B4X_EEPROM_WRITE
 #define B4X_EEPROM_WRITE(addr, val) do { \
     EEPROM_WRITE((addr), (val)); \
     while (WR); \
 } while (0)
+#endif
 
 /**
  * Read char from the EEPROM memory.
  * @param addr Memory address.
  * @param val Char value.
  */
+#ifndef B4X_EEPROM_READ
 #define B4X_EEPROM_READ(addr, val) do { \
     (val) = EEPROM_READ((addr)); \
     while (RD); \
 } while (0)
+#endif
 
 #pragma warning push
 #pragma warning disable 751
@@ -69,12 +75,14 @@ extern "C" {
  * @param addr Memory address.
  * @param val Int value.
  */
+#ifndef B4X_EEPROM_RAW_WRITE_INT
 #define B4X_EEPROM_RAW_WRITE_INT(addr, val) do { \
     eeprom_write((addr), (val) & 0xff); \
     eeprom_write(((addr) + 1), ((val) >> 8 & 0xff)); \
     eeprom_write(((addr) + 2), ((val) >> 16 & 0xff)); \
     eeprom_write(((addr) + 3), ((val) >> 24 & 0xff)); \
 } while (0)
+#endif
 
 #pragma warning pop
 
@@ -83,10 +91,12 @@ extern "C" {
  * @param addr Memory address multiplied by sizeof(int).
  * @param val Int value.
  */
+#ifndef B4X_EEPROM_WRITE_INT
 #define B4X_EEPROM_WRITE_INT(addr, val) do { \
     (addr) <<= sizeof(unsigned int); \
     B4X_EEPROM_RAW_WRITE_INT((addr), (val)); \
 } while (0)
+#endif
 
 #pragma warning push
 #pragma warning disable 1498
@@ -96,6 +106,7 @@ extern "C" {
  * @param addr Memory address.
  * @param val Int value.
  */
+#ifndef B4X_EEPROM_RAW_READ_INT
 #define B4X_EEPROM_RAW_READ_INT(addr, val) do { \
     (val) = eeprom_read(((addr) + 3)); \
     (val) <<= 8; \
@@ -105,6 +116,7 @@ extern "C" {
     (val) <<= 8; \
     (val) += eeprom_read((addr)); \
 } while (0)
+#endif
 
 #pragma warning pop
 
@@ -113,10 +125,12 @@ extern "C" {
  * @param addr Memory address multiplied by sizeof(int).
  * @param val Int value.
  */
+#ifndef B4X_EEPROM_READ_INT
 #define B4X_EEPROM_READ_INT(addr, val) do { \
     (addr) <<= sizeof(unsigned int); \
     B4X_EEPROM_RAW_READ_INT((addr), (val)); \
 } while (0)
+#endif
 
 /**
  * Write int to the EEPROM memory.

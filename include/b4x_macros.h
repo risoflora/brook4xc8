@@ -48,7 +48,9 @@ extern "C" {
 /**
  * Main loop.
  */
+#ifndef B4X_RUN
 #define B4X_RUN() for(;;)
+#endif
 
 #ifdef __cplusplus
 }
