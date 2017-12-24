@@ -69,7 +69,7 @@ extern "C" {
  * @param addr Memory address.
  * @param val Int value.
  */
-#define B4X_EEPROM_WRITE_INT(addr, val) do { \
+#define B4X_EEPROM_RAW_WRITE_INT(addr, val) do { \
     eeprom_write((addr), (val) & 0xff); \
     eeprom_write(((addr) + 1), ((val) >> 8 & 0xff)); \
     eeprom_write(((addr) + 2), ((val) >> 16 & 0xff)); \
@@ -77,6 +77,16 @@ extern "C" {
 } while (0)
 
 #pragma warning pop
+
+/**
+ * Write int to the EEPROM memory (inline).
+ * @param addr Memory address multiplied by sizeof(int).
+ * @param val Int value.
+ */
+#define B4X_EEPROM_WRITE_INT(addr, val) do { \
+    (addr) <<= sizeof(unsigned int); \
+    B4X_EEPROM_RAW_WRITE_INT((addr), (val)); \
+} while (0)
 
 #pragma warning push
 #pragma warning disable 1498
@@ -86,7 +96,7 @@ extern "C" {
  * @param addr Memory address.
  * @param val Int value.
  */
-#define B4X_EEPROM_READ_INT(addr, val) do { \
+#define B4X_EEPROM_RAW_READ_INT(addr, val) do { \
     (val) = eeprom_read(((addr) + 3)); \
     (val) <<= 8; \
     (val) += eeprom_read(((addr) + 2)); \
@@ -99,8 +109,25 @@ extern "C" {
 #pragma warning pop
 
 /**
+ * Read int from the EEPROM memory (inline).
+ * @param addr Memory address multiplied by sizeof(int).
+ * @param val Int value.
+ */
+#define B4X_EEPROM_READ_INT(addr, val) do { \
+    (addr) <<= sizeof(unsigned int); \
+    B4X_EEPROM_RAW_READ_INT((addr), (val)); \
+} while (0)
+
+/**
  * Write int to the EEPROM memory.
  * @param addr Memory address.
+ * @param val Int value.
+ */
+B4X_EXTERN void b4x_eeprom_raw_write_int(const unsigned char addr, unsigned int val);
+
+/**
+ * Write int to the EEPROM memory.
+ * @param addr Memory address multiplied by sizeof(int).
  * @param val Int value.
  */
 B4X_EXTERN void b4x_eeprom_write_int(unsigned char addr, unsigned int val);
@@ -110,11 +137,25 @@ B4X_EXTERN void b4x_eeprom_write_int(unsigned char addr, unsigned int val);
  * @param addr Memory address.
  * @param val Int value.
  */
+B4X_EXTERN unsigned int b4x_eeprom_raw_read_int(const unsigned char addr);
+
+/**
+ * Read int from the EEPROM memory.
+ * @param addr Memory address multiplied by sizeof(int).
+ * @param val Int value.
+ */
 B4X_EXTERN unsigned int b4x_eeprom_read_int(unsigned char addr);
 
 /**
  * Read int from the EEPROM memory.
  * @param addr Memory address.
+ * @param val Int value address.
+ */
+B4X_EXTERN void b4x_eeprom_raw_read2_int(const unsigned char addr, unsigned int *val);
+
+/**
+ * Read int from the EEPROM memory.
+ * @param addr Memory address multiplied by sizeof(int).
  * @param val Int value address.
  */
 B4X_EXTERN void b4x_eeprom_read2_int(unsigned char addr, unsigned int *val);

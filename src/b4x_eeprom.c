@@ -27,12 +27,26 @@
 
 #include "b4x_eeprom.h"
 
+void b4x_eeprom_raw_write_int(const unsigned char addr, unsigned int val) {
+    B4X_EEPROM_RAW_WRITE_INT(addr, val);
+}
+
 void b4x_eeprom_write_int(unsigned char addr, unsigned int val) {
     B4X_EEPROM_WRITE_INT(addr, val);
 }
 
+void b4x_eeprom_raw_read2_int(const unsigned char addr, unsigned int *val) {
+    B4X_EEPROM_RAW_READ_INT(addr, *val);
+}
+
 void b4x_eeprom_read2_int(unsigned char addr, unsigned int *val) {
     B4X_EEPROM_READ_INT(addr, *val);
+}
+
+unsigned int b4x_eeprom_raw_read_int(const unsigned char addr) {
+    unsigned int ret;
+    B4X_EEPROM_RAW_READ_INT(addr, ret);
+    return ret;
 }
 
 unsigned int b4x_eeprom_read_int(unsigned char addr) {
