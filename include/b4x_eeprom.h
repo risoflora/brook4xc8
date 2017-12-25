@@ -38,7 +38,7 @@ extern "C" {
 /**
  * EEPROM size.
  */
-#ifnde B4X_EEPROM_SIZE
+#ifndef B4X_EEPROM_SIZE
 #define B4X_EEPROM_SIZE _EEPROMSIZE
 #endif
 

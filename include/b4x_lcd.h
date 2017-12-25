@@ -57,10 +57,10 @@ extern "C" {
 #ifndef B4X_ALPHA
 #define B4X_ALPHA 0xe0
 #endif
-#endif B4X_BETA
+#ifndef B4X_BETA
 #define B4X_BETA 0xe2
 #endif
-#endif B4X_EPSILON
+#ifndef B4X_EPSILON
 #define B4X_EPSILON 0xe3
 #endif
 #ifndef B4X_MU
