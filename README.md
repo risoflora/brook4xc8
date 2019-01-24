@@ -2,6 +2,10 @@
 
 Brook4-XC8 is a small XC8 library for development with 8-bit PIC MCUs.
 
+# Supported compiler version
+
+[MPLAB XC8 C-Compiler v1.45](https://www.microchip.com/forums/m1029676.aspx).
+
 # LCD driver
 
 ## Circuit
