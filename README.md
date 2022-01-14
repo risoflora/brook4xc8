@@ -10,7 +10,7 @@ Brook4-XC8 is a small XC8 library for all 8-bit PIC MCUs development.
 
 ## Circuit
 
-![LCD driver schematic](https://raw.githubusercontent.com/brook-dev/brook4xc8/master/examples/brook4xc8-lcd.X/schematic.png)
+![LCD driver schematic](https://raw.githubusercontent.com/brook-dev/brook4xc8/main/examples/brook4xc8-lcd.X/schematic.png)
 
 ## Code
 
@@ -38,7 +38,7 @@ void main() {
 
 ## Circuit
 
-![Switch schematic](https://raw.githubusercontent.com/brook-dev/brook4xc8/master/examples/brook4xc8-switch.X/schematic.png)
+![Switch schematic](https://raw.githubusercontent.com/brook-dev/brook4xc8/main/examples/brook4xc8-switch.X/schematic.png)
 
 ## Code
 
@@ -83,7 +83,7 @@ void main() {
 
 ## Circuit
 
-![ADC schematic](https://raw.githubusercontent.com/brook-dev/brook4xc8/master/examples/brook4xc8-adc.X/schematic.png)
+![ADC schematic](https://raw.githubusercontent.com/brook-dev/brook4xc8/main/examples/brook4xc8-adc.X/schematic.png)
 
 ## Code
 
@@ -127,7 +127,7 @@ void main() {
 
 ## Circuit
 
-![EEPROM schematic](https://raw.githubusercontent.com/brook-dev/brook4xc8/master/examples/brook4xc8-eeprom.X/schematic.gif)
+![EEPROM schematic](https://raw.githubusercontent.com/brook-dev/brook4xc8/main/examples/brook4xc8-eeprom.X/schematic.gif)
 
 ## Code
 
@@ -155,6 +155,6 @@ void main() {
 
 # Licensing
 
-Brook4-XC8 is released under GNU Lesser General Public License v3.0. Check the [LICENSE file](https://github.com/risoflora/brook4xc8/blob/master/LICENSE) for more details.
+Brook4-XC8 is released under GNU Lesser General Public License v3.0. Check the [LICENSE file](https://github.com/risoflora/brook4xc8/blob/main/LICENSE) for more details.
 
 [![GNU Lesser General Public License v3.0](https://www.gnu.org/graphics/lgplv3-88x31.png)](https://www.gnu.org/licenses/lgpl-3.0.html)
